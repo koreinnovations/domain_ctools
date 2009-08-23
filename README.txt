@@ -25,7 +25,7 @@ Access and CTools installed.
 ----
 2.  Features
 
-The only feeature currently implemented is an access control plugin
+The only feature currently implemented is an access control plugin
 for Page Manager. This plugin allows you to set domain-specific
 visibility rules for Pages and Panels.
 
