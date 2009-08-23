@@ -1,0 +1,8 @@
+;  $Id$
+name = Domain Ctools
+description = Chaos Tools plugins for Domain Access.
+package = Domain Access
+core = 6.x
+dependencies[] = domain
+dependencies[] = ctools
+
