@@ -1,0 +1,7 @@
+// $Id$
+
+CHANGELOG file for Domain CTools
+
+23-AUG-2009
+  -- Initial commit.
+  -- Creates 6.x.1.0 release.
