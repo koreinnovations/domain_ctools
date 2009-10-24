@@ -26,9 +26,17 @@ function domain_ctools_domain_ctools_access() {
 function domain_ctools_domain_access_settings(&$form, &$form_state, $conf) {
   $domains = domain_domains();
   $options = array();
+  $format = domain_select_format();
   foreach ($domains as $domain) {
-    $key = ($domain['domain_id'] == 0) ? -1 : $domain['domain_id'];
-    $options[$key] = check_plain($domain['sitename']);
+    // Checkboxes cannot handles zeros.
+    if ($domain['domain_id'] == 0) {
+      $domain['domain_id'] = -1;
+    }
+    // The domain must be valid.
+    if ($domain['valid'] || user_access('access inactive domains')) {
+      // Filter checkboxes but not select lists.
+      $options[$domain['domain_id']] = empty($format) ? check_plain($domain['sitename']) : $domain['sitename'];
+    }
   }
   $form['settings']['domain_site'] = array(
     '#type' => 'checkbox',
@@ -37,12 +45,16 @@ function domain_ctools_domain_access_settings(&$form, &$form_state, $conf) {
     '#description' => t('Show content on all domains. This setting will override the domain-specific options below.'),
   );
   $form['settings']['domains'] = array(
-    '#type' => 'checkboxes',
+    '#type' => empty($format) ? 'checkboxes' : 'select',
     '#title' => t('Domains'),
     '#default_value' => isset($conf['domains']) ? $conf['domains'] : array(),
     '#options' => $options,
     '#description' => t('This content will only be visible on the selected domains.'),
   );
+  if ($format) {
+    $form['settings']['domains']['#multiple'] = TRUE;
+    $form['settings']['domains']['#size'] = count($options) > 10 ? 10 : count($options);
+  }
 }
 
 /**
