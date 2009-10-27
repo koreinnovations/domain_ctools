@@ -2,6 +2,10 @@
 
 CHANGELOG file for Domain CTools
 
+27-OCT-2009
+
+-- Catches an instance of _access invalid domains_.
+
 24-OCT-2009
 
 -- #595698. Formats for selection options.
