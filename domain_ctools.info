@@ -1,4 +1,3 @@
-;  $Id$
 name = Domain Ctools
 description = Chaos Tools plugins for Domain Access.
 package = Domain Access
