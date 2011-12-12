@@ -4,7 +4,7 @@
  * @file Domain CTools.
  * Chaos Tools plugins for Domain Access.
  *
- * This file contains API hooks to regster the module.
+ * This file contains API hooks to register the module.
  */
 
 /**

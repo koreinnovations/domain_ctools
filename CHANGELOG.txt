@@ -1,6 +1,9 @@
 
 CHANGELOG file for Domain CTools
 
+01-APR-2011
+-- Added a "domain" context
+
 27-OCT-2009
 
 -- Catches an instance of _access invalid domains_.
